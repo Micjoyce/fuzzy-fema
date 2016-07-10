@@ -1,0 +1,126 @@
+Number ,o ,s ,d ,r
+1,Almost none,Almost none,Almost none,None
+2,Almost none,Almost none,Low,None
+3,Almost none,Almost none,Medium,Very low
+4,Almost none,Almost none,High,Low
+5,Almost none,Almost none,Very high,Low
+6,Almost none,Low,Almost none,Very low
+7,Almost none,Low,Low,Low
+8,Almost none,Low,Medium,Low
+9,Almost none,Low,High,High low
+10,Almost none,Low,Very high,Low medium
+11,Almost none,Medium,Almost none,Very low
+12,Almost none,Medium,Low,Low
+13,Almost none,Medium,Medium,Low
+14,Almost none,Medium,High,High low
+15,Almost none,Medium,Very high,High low
+16,Almost none,High,Almost none,Low
+17,Almost none,High,Low,High low
+18,Almost none,High,Medium,Low medium
+19,Almost none,High,High,Medium
+20,Almost none,High,Very high,High medium
+21,Almost none,Very high,Almost none,High low
+22,Almost none,Very high,Low,Low medium
+23,Almost none,Very high,Medium,Medium
+24,Almost none,Very high,High,High medium
+25,Almost none,Very high,Very high,High
+26,Low,Almost none,Almost none,None
+27,Low,Almost none,Low,None
+28,Low,Almost none,Medium,Very low
+29,Low,Almost none,High,Low
+30,Low,Almost none,Very high,Low
+31,Low,Low,Almost none,Very low
+32,Low,Low,Low,Low
+33,Low,Low,Medium,High low
+34,Low,Low,High,Low medium
+35,Low,Low,Very high,Medium
+36,Low,Medium,Almost none,High low
+37,Low,Medium,Low,Low medium
+38,Low,Medium,Medium,Medium
+39,Low,Medium,High,High medium
+40,Low,Medium,Very high,Low high
+41,Low,High,Almost none,Low medium
+42,Low,High,Low,Medium
+43,Low,High,Medium,High medium
+44,Low,High,High,Low high
+45,Low,High,Very high,High
+46,Low,Very high,Almost none,Low medium
+47,Low,Very high,Low,Low medium
+48,Low,Very high,Medium,Medium
+49,Low,Very high,High,High
+50,Low,Very high,Very high,High
+51,Medium,Almost none,Almost none,Very low
+52,Medium,Almost none,Low,Very low
+53,Medium,Almost none,Medium,Low
+54,Medium,Almost none,High,High low
+55,Medium,Almost none,Very high,Low medium
+56,Medium,Low,Almost none,Low
+57,Medium,Low,Low,High low
+58,Medium,Low,Medium,Low medium
+59,Medium,Low,High,Medium
+60,Medium,Low,Very high,High medium
+61,Medium,Medium,Almost none,Low medium
+62,Medium,Medium,Low,Medium
+63,Medium,Medium,Medium,High medium
+64,Medium,Medium,High,Low high
+65,Medium,Medium,Very high,High
+66,Medium,High,Almost none,Low
+67,Medium,High,Low,High low
+68,Medium,High,Medium,Low medium
+69,Medium,High,High,High medium
+70,Medium,High,Very high,Low high
+71,Medium,Very high,Almost none,Low high
+72,Medium,Very high,Low,Medium
+73,Medium,Very high,Medium,High medium
+74,Medium,Very high,High,Low high
+75,Medium,Very high,Very high,High
+76,High,Almost none,Almost none,None
+77,High,Almost none,Low,Very low
+78,High,Almost none,Medium,Low
+79,High,Almost none,High,Low
+80,High,Almost none,Very high,High low
+81,High,Low,Almost none,Very low
+82,High,Low,Low,Low
+83,High,Low,Medium,High low
+84,High,Low,High,Low medium
+85,High,Low,Very high,Medium
+86,High,Medium,Almost none,Low
+87,High,Medium,Low,High low
+88,High,Medium,Medium,Low medium
+89,High,Medium,High,Medium
+90,High,Medium,Very high,High medium
+91,High,High,Almost none,Low medium
+92,High,High,Low,Medium
+93,High,High,Medium,High medium
+94,High,High,High,Low high
+95,High,High,Very high,High
+96,High,Very high,Almost none,Medium
+97,High,Very high,Low,High medium
+98,High,Very high,Medium,Low high
+99,High,Very high,High,High
+100,High,Very high,Very high,Very high
+101,Very high,Almost none,Almost none,Very low
+102,Very high,Almost none,Low,Very low
+103,Very high,Almost none,Medium,Low
+104,Very high,Almost none,High,Low
+105,Very high,Almost none,Very high,High low
+106,Very high,Low,Almost none,Low
+107,Very high,Low,Low,High low
+108,Very high,Low,Medium,High low
+109,Very high,Low,High,Low medium
+110,Very high,Low,Very high,Medium
+111,Very high,Medium,Almost none,High low
+112,Very high,Medium,Low,High low
+113,Very high,Medium,Medium,Low medium
+114,Very high,Medium,High,Medium
+115,Very high,Medium,Very high,High medium
+116,Very high,High,Almost none,Low medium
+117,Very high,High,Low,Medium
+118,Very high,High,Medium,High medium
+119,Very high,High,High,Low high
+120,Very high,High,Very high,High
+121,Very high,Very high,Almost none,High medium
+122,Very high,Very high,Low,Low high
+123,Very high,Very high,Medium,High
+124,Very high,Very high,High,Very high
+125,Very high,Very high,Very high,Very high
