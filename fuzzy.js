@@ -270,32 +270,37 @@ function testRPNs() {
       });
     },
     function(rules, callback) {
-      var ss = [2.86, 4.19, 3.73, 2.83, 2.83, 3.17, 3.17, 1.97, 5.10, 2.29, 4.54, 4.48, 4.19, 2.93, 1.15, 3.29, 1.55, 2.93, 2.89, 5.58, 5.79];
-      var os = [3.13, 4.69, 5.10, 3.95, 5.19, 3.68, 4.74, 2.99, 5.49, 2.70, 2.77, 4.38, 5.37, 3.06, 2.05, 5.10, 6.92, 6.15, 6.07, 6.00, 6.00];
-      var ds = [3.96, 4.28, 2.86, 2.40, 2.40, 2.27, 2.27, 1.72, 1.55, 1.89, 1.89, 2.43, 2.29, 5.88, 3.98, 5.49, 2.51, 2.89, 5.70, 5.58, 5.19];
-      var rpns = [4.07, 7, 5.29, 3.94, 4, 4.04, 4.34, 2.73, 5.62, 2.91, 4.91, 6, 6, 4.05, 2.41, 5.54, 2.71, 3.81, 4.91, 7, 7];
+      // var ss = [2.86, 4.19, 3.73, 2.83, 2.83, 3.17, 3.17, 1.97, 5.10, 2.29, 4.54, 4.48, 4.19, 2.93, 1.15, 3.29, 1.55, 2.93, 2.89, 5.58, 5.79];
+      // var os = [3.13, 4.69, 5.10, 3.95, 5.19, 3.68, 4.74, 2.99, 5.49, 2.70, 2.77, 4.38, 5.37, 3.06, 2.05, 5.10, 6.92, 6.15, 6.07, 6.00, 6.00];
+      // var ds = [3.96, 4.28, 2.86, 2.40, 2.40, 2.27, 2.27, 1.72, 1.55, 1.89, 1.89, 2.43, 2.29, 5.88, 3.98, 5.49, 2.51, 2.89, 5.70, 5.58, 5.19];
+      // var rpns = [4.07, 7, 5.29, 3.94, 4, 4.04, 4.34, 2.73, 5.62, 2.91, 4.91, 6, 6, 4.05, 2.41, 5.54, 2.71, 3.81, 4.91, 7, 7];
+      var ss = [4.48,5.79,3.17,4.19,6,6.07,4.54,5.79,3.73,6.15,5.58,3.73,2.89,5.58,3.98,4.19];
+      var os = [2.786518023,3.86636409,1.515716567,1.430969081,2.352158045,1.64375183,2.141127368,2.352158045,1.24573094,1.888175023,1.430969081,1.430969081,1.24573094,1.551845574,1.24573094,1.319507911];
+      var ds = [3.96,2.43,2.29,2.41,5.7,5.88,2.89,2.7,2.29,5.62,5.49,2.86,1.72,3.96,2.51,1.89];
+      // var rpns = [4.07, 7, 5.29, 3.94, 4, 4.04, 4.34, 2.73, 5.62, 2.91, 4.91, 6, 6, 4.05, 2.41, 5.54, 2.71, 3.81, 4.91, 7, 7];
       var mulitTestData = [];
       for (var len = 0; len < ss.length; len++) {
         mulitTestData.push({
           s: ss[len],
           o: os[len],
-          d: ds[len],
-          rpn: rpns[len]
+          d: ds[len]
+          // rpn: rpns[len]
         });
       }
 
       async.each(mulitTestData, function(item, _callback) {
         analyzeOSD(memberShip(item.s), memberShip(item.o), memberShip(item.d), rules, function(err, result){
           var fixResult = Number(result).toFixed(2);
-          var fixInput = Number(item.rpn).toFixed(2);
-          console.log(fixResult, fixInput);
-          if (fixResult ===  fixInput) {
-            console.log("输入--> s: ", item.s," o: ", item.o," d: ", item.d, " rpn: ", item.rpn + "(保留两位小数:" + fixInput  +  ")", "输出结果: ", fixResult, "✅");
+          // var fixInput = Number(item.rpn).toFixed(2);
+          // console.log(fixResult, fixInput);
+          // if (fixResult ===  fixInput) {
+            // console.log("输入--> s: ", item.s," o: ", item.o," d: ", item.d, " rpn: ", item.rpn + "(保留两位小数:" + fixInput  +  ")", "输出结果: ", fixResult, "✅");
+            console.log("输入--> s: ", item.s," o: ", item.o," d: ", item.d, "输出结果: ", fixResult, "✅");
             _callback();
-          }else{
-            console.log("输入--> s: ", item.s," o: ", item.o," d: ", item.d, " rpn: ", item.rpn + "(保留两位小数:" + fixInput  +  ")", "输出结果: ", fixResult, "❌");
-            _callback()
-          }
+          // }else{
+          //   console.log("输入--> s: ", item.s," o: ", item.o," d: ", item.d, " rpn: ", item.rpn + "(保留两位小数:" + fixInput  +  ")", "输出结果: ", fixResult, "❌");
+          //   _callback()
+          // }
         });
       }, function(err) {
         callback(err)
