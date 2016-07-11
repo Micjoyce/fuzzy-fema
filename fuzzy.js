@@ -1,6 +1,6 @@
 'use strict'
 
-var  _ = require("lodash");
+var _ = require("lodash");
 //Converter Class
 var Converter = require("csvtojson").Converter;
 var converter = new Converter({});
@@ -15,9 +15,9 @@ var testData = [{
 }];
 var testResult = 4.07;
 // get val is or not in arr,eq: [2,8], 3 --> true
-function isInRange(arr, val){
+function isInRange(arr, val) {
   if (!_.isArray(arr)) {
-    console.log("arr: " + arr + ", not a array" );
+    console.log("arr: " + arr + ", not a array");
     return;
   }
   if (!val || !_.isNumber(val)) {
@@ -32,73 +32,64 @@ function isInRange(arr, val){
   return false;
 }
 // defined
-function memberShip(val){
-  var funcs = [
-    {
-      range: [0, 2],
-      formula: {
-        x: -1/2,
-        b: 1
-      },
-      state: "Almost none"
+function memberShip(val) {
+  var funcs = [{
+    range: [0, 2],
+    formula: {
+      x: -1 / 2,
+      b: 1
     },
-    {
-      range: [1, 2.5],
-      formula: {
-        x: 2/3,
-        b: -2/3
-      },
-      state: "Low"
+    state: "Almost none"
+  }, {
+    range: [1, 2.5],
+    formula: {
+      x: 2 / 3,
+      b: -2 / 3
     },
-    {
-      range: [2.5, 4],
-      formula: {
-        x: -2/3,
-        b: 8/3
-      },
-      state: "Low"
+    state: "Low"
+  }, {
+    range: [2.5, 4],
+    formula: {
+      x: -2 / 3,
+      b: 8 / 3
     },
-    {
-      range: [3, 5],
-      formula: {
-        x: 1/2,
-        b: -3/2
-      },
-      state: "Medium"
+    state: "Low"
+  }, {
+    range: [3, 5],
+    formula: {
+      x: 1 / 2,
+      b: -3 / 2
     },
-    {
-      range: [5, 7],
-      formula: {
-        x: -1/2,
-        b: 7/2
-      },
-      state: "Medium"
+    state: "Medium"
+  }, {
+    range: [5, 7],
+    formula: {
+      x: -1 / 2,
+      b: 7 / 2
     },
-    {
-      range: [6, 7.5],
-      formula: {
-        x: 2/3,
-        b: -4
-      },
-      state: "High"
+    state: "Medium"
+  }, {
+    range: [6, 7.5],
+    formula: {
+      x: 2 / 3,
+      b: -4
     },
-    {
-      range: [7.5, 9],
-      formula: {
-        x: -2/3,
-        b: 6
-      },
-      state: "High"
+    state: "High"
+  }, {
+    range: [7.5, 9],
+    formula: {
+      x: -2 / 3,
+      b: 6
     },
-    {
-      range: [8, 10],
-      formula: {
-        x: 1/2,
-        b: -4
-      },
-      state: "Very high"
+    state: "High"
+  }, {
+    range: [8, 10],
+    formula: {
+      x: 1 / 2,
+      b: -4
     },
-  ];
+    state: "Very high"
+  }, ];
   var memberShips = [];
   for (var i = 0; i < funcs.length; i++) {
     var item = funcs[i];
@@ -115,48 +106,37 @@ function memberShip(val){
 }
 
 //RPN
-var RPN = [
-  {
-    state: "None",
-    scores: 1
-  },
-  {
-    state: "Very low",
-    scores: 2
-  },
-  {
-    state: "Low",
-    scores: 3
-  },
-  {
-    state: "High low",
-    scores: 4
-  },
-  {
-    state: "Low medium",
-    scores: 5
-  },
-  {
-    state: "Medium",
-    scores: 6
-  },
-  {
-    state: "High medium",
-    scores: 7
-  },
-  {
-    state: "Low high",
-    scores: 8
-  },
-  {
-    state: "High",
-    scores: 9
-  },
-  {
-    state: "Very high",
-    scores: 10
-  }
-]
+var RPN = [{
+  state: "None",
+  scores: 1
+}, {
+  state: "Very low",
+  scores: 2
+}, {
+  state: "Low",
+  scores: 3
+}, {
+  state: "High low",
+  scores: 4
+}, {
+  state: "Low medium",
+  scores: 5
+}, {
+  state: "Medium",
+  scores: 6
+}, {
+  state: "High medium",
+  scores: 7
+}, {
+  state: "Low high",
+  scores: 8
+}, {
+  state: "High",
+  scores: 9
+}, {
+  state: "Very high",
+  scores: 10
+}]
 
 
 // sShips: [ { state: 'Low', rate: 0.76 } ]
@@ -164,14 +144,14 @@ var RPN = [
 //   { state: 'Medium', rate: 0.06499999999999995 } ]
 // dShips:[ { state: 'Low', rate: 0.02666666666666684 },
 //   { state: 'Medium', rate: 0.48 } ]
-function analyzeOSD(sShips, oShips, dShips){
+function analyzeOSD(sShips, oShips, dShips, rules, _cb) {
   if (!_.isArray(sShips) || !_.isArray(oShips) || !_.isArray(dShips)) {
-    console.log("sShips || oShips || dShips" + " not a array. sShips: " + sShips, "oShips: ", oShips, "dShips: ", dShips  );
+    console.log("sShips || oShips || dShips" + " not a array. sShips: " + sShips, "oShips: ", oShips, "dShips: ", dShips);
     return;
   }
 
   async.waterfall([
-    function(callback){
+    function(callback) {
       // 生成多少中状态组合
       var states = [];
       for (var i = 0; i < sShips.length; i++) {
@@ -199,7 +179,7 @@ function analyzeOSD(sShips, oShips, dShips){
       }
       callback(null, states);
     },
-    function(states, callback){
+    function(states, callback) {
       // 找到各个状态中最小值
       for (var i = 0; i < states.length; i++) {
         var state = states[i];
@@ -208,21 +188,12 @@ function analyzeOSD(sShips, oShips, dShips){
       }
       callback(null, states);
     },
-    function(states, callback){
-      //end_parsed will be emitted once parsing finished
-      converter.on("end_parsed", function (rules) {
-        //  console.log(rules); //here is your result jsonarray
-         callback(null, rules, states);
-      });
-      //read from file
-      require("fs").createReadStream("./rules.csv").pipe(converter);
-    },
-    function(rules, states, callback){
+    function(states, callback) {
       // 从rules 找出各种状态
       var rpnStates = [];
       for (var i = 0; i < states.length; i++) {
         var state = states[i];
-        var ruleResult = _.filter(rules, function(item){
+        var ruleResult = _.filter(rules, function(item) {
           return item.o === state.o.state && item.s === state.s.state && item.d === state.d.state;
         });
         var rState = ruleResult[0].r;
@@ -234,12 +205,12 @@ function analyzeOSD(sShips, oShips, dShips){
       }
       callback(null, rpnStates, states);
     },
-    function(rpnStates, states, callback){
+    function(rpnStates, states, callback) {
       var filterStates = [];
       for (var i = 0; i < rpnStates.length; i++) {
         var rpnState = rpnStates[i];
         // filter states  移除重复的
-        var fStates = _.filter(states, function(item){
+        var fStates = _.filter(states, function(item) {
           return item.rpn === rpnState;
         });
         // 得到最大值的情况
@@ -251,7 +222,7 @@ function analyzeOSD(sShips, oShips, dShips){
           }
         }
         // get scores
-        var rpn = _.filter(RPN, function(item){
+        var rpn = _.filter(RPN, function(item) {
           return item.state === rpnState;
         });
         maxState.scores = rpn[0].scores;
@@ -259,7 +230,7 @@ function analyzeOSD(sShips, oShips, dShips){
       }
       callback(null, filterStates);
     },
-    function(filterStates, callback){
+    function(filterStates, callback) {
       // 计算结果
       var sumScores = 0;
       var sumMin = 0;
@@ -268,19 +239,80 @@ function analyzeOSD(sShips, oShips, dShips){
         sumScores += fState.min * fState.scores;
         sumMin += fState.min;
       }
-      var fuzzyOutput = sumScores/sumMin;
-      callback(null,fuzzyOutput);
+      var fuzzyOutput = sumScores / sumMin;
+      callback(null, fuzzyOutput);
     }
-  ], function(err, result){
-      console.log("输入结果：", result);
-      console.log(err,result)
+  ], function(err, result) {
+    // console.log("输入结果：", result);
+    // console.log(err,result)
+    _cb(err, result);
   });
 }
+
+
+function generatorRules(callback) {
+  //end_parsed will be emitted once parsing finished
+  converter.on("end_parsed", function(rules) {
+    //  console.log(rules); //here is your result jsonarray
+    callback(null, rules);
+  });
+  //read from file
+  require("fs").createReadStream("./rules.csv").pipe(converter);
+}
+
+
+//mulit test
+function testRPNs() {
+  async.waterfall([
+    function(callback) {
+      generatorRules(function(err, rules) {
+        callback(null, rules);
+      });
+    },
+    function(rules, callback) {
+      var ss = [2.86, 4.19, 3.73, 2.83, 2.83, 3.17, 3.17, 1.97, 5.10, 2.29, 4.54, 4.48, 4.19, 2.93, 1.15, 3.29, 1.55, 2.93, 2.89, 5.58, 5.79];
+      var os = [3.13, 4.69, 5.10, 3.95, 5.19, 3.68, 4.74, 2.99, 5.49, 2.70, 2.77, 4.38, 5.37, 3.06, 2.05, 5.10, 6.92, 6.15, 6.07, 6.00, 6.00];
+      var ds = [3.96, 4.28, 2.86, 2.40, 2.40, 2.27, 2.27, 1.72, 1.55, 1.89, 1.89, 2.43, 2.29, 5.88, 3.98, 5.49, 2.51, 2.89, 5.70, 5.58, 5.19];
+      var rpns = [4.07, 7, 5.29, 3.94, 4, 4.04, 4.34, 2.73, 5.62, 2.91, 4.91, 6, 6, 4.05, 2.41, 5.54, 2.71, 3.81, 4.91, 7, 7];
+      var mulitTestData = [];
+      for (var len = 0; len < ss.length; len++) {
+        mulitTestData.push({
+          s: ss[len],
+          o: os[len],
+          d: ds[len],
+          rpn: rpns[len]
+        });
+      }
+
+      async.each(mulitTestData, function(item, _callback) {
+        analyzeOSD(memberShip(item.s), memberShip(item.o), memberShip(item.d), rules, function(err, result){
+          var fixResult = Number(result).toFixed(2);
+          var fixInput = Number(item.rpn).toFixed(2);
+          console.log(fixResult, fixInput);
+          if (fixResult ===  fixInput) {
+            console.log("输入--> s: ", item.s," o: ", item.o," d: ", item.d, " rpn: ", item.rpn + "(保留两位小数:" + fixInput  +  ")", "输出结果: ", fixResult, "✅");
+            _callback();
+          }else{
+            console.log("输入--> s: ", item.s," o: ", item.o," d: ", item.d, " rpn: ", item.rpn + "(保留两位小数:" + fixInput  +  ")", "输出结果: ", fixResult, "❌");
+            _callback()
+          }
+        });
+      }, function(err) {
+        callback(err)
+      });
+    }
+  ], function(err, result) {
+    console.log(err, result);
+  });
+}
+
+testRPNs();
+
 //test
-testData.forEach(function(item){
-  console.log("输入--> s: ", item.s," o: ", item.o," d: ", item.d);
-  analyzeOSD(memberShip(item.s), memberShip(item.o), memberShip(item.d));
-});
+// testData.forEach(function(item){
+//   console.log("输入--> s: ", item.s," o: ", item.o," d: ", item.d);
+//   analyzeOSD(memberShip(item.s), memberShip(item.o), memberShip(item.d));
+// });
 
 // 遍历数据osd －－》 更具funcs计算得出隶属度
 // s: {state: "High", rate: 0.1}, {state: "mid", rate: 0.5}, o: {state: "low", rate: 0.3}, {state: "mid", rate: 0.4}, d: {state: "low", rate: 0.3}, {state: "mid", rate: 0.1}
